@@ -38,7 +38,7 @@ public class CalculatorCouvert {
 		Set<Integer> integers = new HashSet<>();
 		for (int i = 0; i < numberString.length(); i++) {
 			if (number < 0 && i == 0) {
-				i++;
+				continue;
 			}
 			integers.add(Integer.parseInt(numberString, i, i + 1, 10));
 		}
