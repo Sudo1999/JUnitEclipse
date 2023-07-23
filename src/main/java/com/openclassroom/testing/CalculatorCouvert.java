@@ -28,6 +28,8 @@ public class CalculatorCouvert {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			Thread thread = new Thread();
+			thread.interrupt();
 		}
 		return message;
 	}
