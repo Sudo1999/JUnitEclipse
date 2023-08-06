@@ -4,24 +4,37 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.text.MessageFormat;
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Set;
 
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+@ExtendWith(LoggingExtension.class)
 public class CalculatorCouvertTest {
 
 	private static Instant startInstant;
 	private static int testNumber = 0;
 	private CalculatorCouvert calculatorCouvert;
+	private Logger logger;
+
+	public void setLogger(Logger logger) {
+		this.logger = logger;
+	}
 
 	// @BeforeAll et @AfterAll ne fonctionnent pas avec les tests paramétrés
 	@BeforeAll
@@ -40,12 +53,21 @@ public class CalculatorCouvertTest {
 
 	@BeforeEach
 	public void initCalculator() {
+		logger.info(MessageFormat.format("Appel avant le test numéro {0}", ++testNumber));
 		calculatorCouvert = new CalculatorCouvert();
+	}
+
+	@AfterEach
+	public void calculatorToNull() {
+		logger.info(MessageFormat.format("Appel après le test numéro {0}", testNumber));
+		calculatorCouvert = null;
 	}
 
 	//////// DEBUT DES TESTS ////////
 
 	@Test
+	@Tag("Addition")
+	@Tag("OperationWithTwoPositiveNumbers")
 	public void testAdd_twoPositiveNumbers() {
 
 		// ARRANGE = GIVEN
@@ -61,6 +83,7 @@ public class CalculatorCouvertTest {
 
 	@ParameterizedTest(name = "{0} + {1} doit être égal à {2}")
 	@CsvSource({ "1,1,2", "5,10,15", "256,410,666" })
+	@Tag("Addition")
 	public void testAdd_manyDifferentIntegers(int argument1, int argument2, int resultat) {
 
 		// ACT
@@ -72,6 +95,7 @@ public class CalculatorCouvertTest {
 	}
 
 	@Test
+	@Tag("OperationWithTwoPositiveNumbers")
 	public void testMultiply_twoPositiveNumbers() {
 
 		// ARRANGE
@@ -99,6 +123,7 @@ public class CalculatorCouvertTest {
 
 	@Test
 	@Timeout(value = 2)
+	@Tag("TagExclu")
 	public void TestLongCalcul_shouldComputeInLessThan2Seconds() {
 
 		// ACT
@@ -107,6 +132,13 @@ public class CalculatorCouvertTest {
 		assertEquals("Le test est passé avec succès !!!", message);
 		// ASSERT WITH ASSERTJ
 		assertThat(message).isEqualTo("Le test est passé avec succès !!!");
+	}
+
+	@Test
+	@Disabled("Test mis en sommeil car il échoue tous les vendredis")
+	public void testDateIsNotFriday() {
+		LocalDateTime dateTime = LocalDateTime.now();
+		assertThat(dateTime.getDayOfWeek()).isNotEqualTo(DayOfWeek.FRIDAY);
 	}
 
 	@Test
