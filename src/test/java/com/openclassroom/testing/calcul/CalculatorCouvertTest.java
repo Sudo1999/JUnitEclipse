@@ -1,4 +1,4 @@
-package com.openclassroom.testing;
+package com.openclassroom.testing.calcul;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,6 +23,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import com.openclassroom.testing.calcul.CalculatorCouvert;
 
 @ExtendWith(LoggingExtension.class)
 public class CalculatorCouvertTest {
@@ -124,7 +126,7 @@ public class CalculatorCouvertTest {
 	@Test
 	@Timeout(value = 2)
 	@Tag("TagExclu")
-	public void TestLongCalcul_shouldComputeInLessThan2Seconds() {
+	public void testLongCalcul_shouldComputeInLessThan2Seconds() {
 
 		// ACT
 		String message = calculatorCouvert.longCalcul();

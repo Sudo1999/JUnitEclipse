@@ -1,4 +1,4 @@
-package com.openclassroom.testing;
+package com.openclassroom.testing.calcul;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -45,5 +45,15 @@ public class CalculatorCouvert {
 			integers.add(Integer.parseInt(numberString, i, i + 1, 10));
 		}
 		return integers;
+	}
+
+	public Integer subtract(Integer leftArgument, Integer rightArgument) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Integer divide(Integer leftArgument, Integer rightArgument) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

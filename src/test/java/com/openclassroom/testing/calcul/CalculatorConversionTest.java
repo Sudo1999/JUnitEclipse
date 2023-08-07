@@ -1,4 +1,4 @@
-package com.openclassroom.testing;
+package com.openclassroom.testing.calcul;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.withinPercentage;
@@ -7,6 +7,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import com.openclassroom.testing.calcul.CalculatorConversion;
 
 @Tag("ConversionTest") // @Tag désigne tous les tests de la classe en tant que tests de conversion.
 @DisplayName("Convertir différentes unités de mesure.") // @DisplayName permet de nommer les tests de façon claire et compréhensible.
