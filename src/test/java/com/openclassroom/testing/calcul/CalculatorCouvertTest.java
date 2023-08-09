@@ -24,7 +24,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import com.openclassroom.testing.calcul.CalculatorCouvert;
+//import com.openclassroom.testing.calcul.CalculatorCouvert;
 
 @ExtendWith(LoggingExtension.class)
 public class CalculatorCouvertTest {
