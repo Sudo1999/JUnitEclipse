@@ -51,17 +51,6 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldThrowIllegalArgumentException_forDivisionBy0() {
-		
-		// GIVEN
-		when(calculator.divide(1, 0)).thenThrow(new IllegalArgumentException());
-		
-		// THEN
-		assertThrows(IllegalArgumentException.class, () -> service.calculate(new CalculationModel(CalculationType.DIVISION, 1, 0)));
-		verify(calculator, times(1)).divide(1, 0);
-	}
-
-	@Test
 	public void testCalculate_shouldFormatSolution_forAddition() {
 		
 		// GIVEN
@@ -74,6 +63,62 @@ public class CalculatorServiceTest {
 
 		// THEN
 		assertThat(formattedResult).isEqualTo("13 000");
+	}
+
+	@Test
+	public void testCalculate_shouldUseCalculator_forSoustraction() {
+		
+		// GIVEN
+		when(calculator.subtract(10, 6)).thenReturn(4);
+	
+		// WHEN
+		final int result = service.calculate(new CalculationModel(CalculationType.SOUSTRACTION, 10, 6))
+			.getSolution();
+	
+		// THEN
+		verify(calculator).subtract(10, 6);
+		assertThat(result).isEqualTo(4);
+	}
+
+	@Test
+	public void testCalculate_shouldUseCalculator_forMultiplication() {
+		
+		// GIVEN
+		when(calculator.multiply(3, 4)).thenReturn(12);
+	
+		// WHEN
+		final int result = service.calculate(new CalculationModel(CalculationType.MULTIPLICATION, 3, 4))
+			.getSolution();
+	
+		// THEN
+		verify(calculator).multiply(3, 4);
+		assertThat(result).isEqualTo(12);
+	}
+
+	@Test
+	public void testCalculate_shouldUseCalculator_forDivision() {
+		
+		// GIVEN
+		when(calculator.divide(40, 5)).thenReturn(8);
+	
+		// WHEN
+		final int result = service.calculate(new CalculationModel(CalculationType.DIVISION, 40, 5))
+			.getSolution();
+	
+		// THEN
+		verify(calculator).divide(40, 5);
+		assertThat(result).isEqualTo(8);
+	}
+
+	@Test
+	public void testCalculate_shouldThrowIllegalArgumentException_forDivisionBy0() {
+		
+		// GIVEN
+		when(calculator.divide(1, 0)).thenThrow(new IllegalArgumentException());
+		
+		// THEN
+		assertThrows(IllegalArgumentException.class, () -> service.calculate(new CalculationModel(CalculationType.DIVISION, 1, 0)));
+		verify(calculator, times(1)).divide(1, 0);
 	}
 
 	/* La classe de tests avant le mock :

@@ -13,6 +13,16 @@ public class CalculatorCouvert {
 		return a * b;
 	}
 
+	public Integer subtract(Integer leftArgument, Integer rightArgument) {
+		// TODO Auto-generated method stub
+		return leftArgument - rightArgument;
+	}
+
+	public Integer divide(Integer leftArgument, Integer rightArgument) {
+		// TODO Auto-generated method stub
+		return leftArgument / rightArgument;
+	}
+
 	public double add(double a, double b) {
 		return a + b;
 	}
@@ -45,15 +55,5 @@ public class CalculatorCouvert {
 			integers.add(Integer.parseInt(numberString, i, i + 1, 10));
 		}
 		return integers;
-	}
-
-	public Integer subtract(Integer leftArgument, Integer rightArgument) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Integer divide(Integer leftArgument, Integer rightArgument) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

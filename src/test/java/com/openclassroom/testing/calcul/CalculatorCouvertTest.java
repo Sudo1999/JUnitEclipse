@@ -147,7 +147,6 @@ public class CalculatorCouvertTest {
 	public void testReturnDigitsOfTheNumber() {
 
 		// GIVEN
-		calculatorCouvert = new CalculatorCouvert();
 		int firstNumber = 529045581;
 		int negativeNumber = -3490;
 		int zeroNumber = 0;
@@ -161,5 +160,33 @@ public class CalculatorCouvertTest {
 		assertThat(calculatorFirstResult).containsExactlyInAnyOrder(5, 2, 9, 0, 4, 8, 1);
 		assertThat(calculatorNegativeResult).containsExactlyInAnyOrder(3, 4, 9, 0);
 		assertThat(calculatorZeroResult).containsExactlyInAnyOrder(0);
+	}
+
+	@Test
+	public void testSubtract_TwoPositiveNumber() {
+
+		// GIVEN
+		int x = 26;
+		int y = 6;
+
+		// WHEN
+		final int z = calculatorCouvert.subtract(x, y);
+
+		//THEN
+		assertThat(z).isEqualTo(20);
+	}
+
+	@Test
+	public void testDivide_TwoPositiveNumber() {
+
+		// GIVEN
+		int x = 70;
+		int y = 14;
+
+		// WHEN
+		final int z = calculatorCouvert.divide(x, y);
+
+		//THEN
+		assertThat(z).isEqualTo(5);
 	}
 }
