@@ -10,6 +10,7 @@ public class CalculationModel {
 	private Integer leftArgument;
 	private Integer rightArgument;
 	private Integer solution;
+	private String formattedSolution;
 
 	public CalculationModel(CalculationType calculationType, int leftArgument, int rightArgument) {
 		type = calculationType;
@@ -72,5 +73,13 @@ public class CalculationModel {
 
 	public void setSolution(Integer solution) {
 		this.solution = solution;
+	}
+
+	public String getFormattedSolution() {
+		return formattedSolution;
+	}
+
+	public void setFormattedSolution(String formattedSolution) {
+		this.formattedSolution = formattedSolution;
 	}
 }

@@ -7,9 +7,11 @@ import com.openclassroom.testing.model.CalculationType;
 public class CalculatorServiceImplementation implements CalculatorService {
 
 	private final CalculatorCouvert calculator;
+	private final SolutionFormatter formatter;
 
-	public CalculatorServiceImplementation(CalculatorCouvert calculator) {
+	public CalculatorServiceImplementation(CalculatorCouvert calculator, SolutionFormatter formatter) {
 		this.calculator = calculator;
+		this.formatter = formatter;
 	}
 
 	@Override
@@ -36,6 +38,7 @@ public class CalculatorServiceImplementation implements CalculatorService {
 		}
 
 		calculationModel.setSolution(response);
+		calculationModel.setFormattedSolution(formatter.format(response));
 		return calculationModel;
 	}
 }
