@@ -9,7 +9,7 @@ public class SolutionFormatterTest {
 	private SolutionFormatter formatter;
 
 	@Test
-	public void testFormat_shouldFormatSolution_forPositiveInteger() {
+	void testFormat_shouldFormatSolution_forPositiveInteger() {
 
 		// GIVEN
 		formatter = new SolutionFormatterImplementation();
@@ -23,7 +23,7 @@ public class SolutionFormatterTest {
 	}
 
 	@Test
-	public void testFormat_shouldFormatSolution_forNegativeInteger() {
+	void testFormat_shouldFormatSolution_forNegativeInteger() {
 
 		// GIVEN
 		formatter = new SolutionFormatterImplementation();

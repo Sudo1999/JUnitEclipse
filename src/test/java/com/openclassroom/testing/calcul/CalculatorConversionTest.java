@@ -27,14 +27,14 @@ public class CalculatorConversionTest {
 
 		@Test
 		@DisplayName("Soit une T° à 0°C, lorsque l'on convertit en °F, on obtient 32°F.")
-		public void testCelsiusToFahrenheit_returnsThirtyTwoFahrenheit_whenCelsiusIsZero() {
+		void testCelsiusToFahrenheit_returnsThirtyTwoFahrenheit_whenCelsiusIsZero() {
 			Double actualFahrenheit = calculatorConversion.celsiusToFahrenheit(0.0);
 			assertThat(actualFahrenheit).isCloseTo(32.0, withinPercentage(0.01));
 		}
 
 		@Test
 		@DisplayName("Soit une T° à 32°F, lorsque l'on convertit en °C, on obtient 0°C.")
-		public void testFahrenheitToCelsius_returnsZeroCelsius_whenFahrenheitIsThirtyTwo() {
+		void testFahrenheitToCelsius_returnsZeroCelsius_whenFahrenheitIsThirtyTwo() {
 			Double actualCelsius = calculatorConversion.fahrenheitToCelsius(32.0);
 			assertThat(actualCelsius).isCloseTo(0.0, withinPercentage(0.01));
 		}
@@ -42,14 +42,14 @@ public class CalculatorConversionTest {
 
 	@Test
 	@DisplayName("Un volume de 3.78541 litres équivaut à 1 gallon.")
-	public void testLitresToGallons_returnsOneGallon_whenConvertingTheEquivalentNumberOfLitres() {
+	void testLitresToGallons_returnsOneGallon_whenConvertingTheEquivalentNumberOfLitres() {
 		Double actualLitres = calculatorConversion.litresToGallons(3.78541);
 		assertThat(actualLitres).isCloseTo(1.0, withinPercentage(0.01));
 	}
 
 	@Test
 	@DisplayName("La surface d'un disque de rayon 1 doit valoir Pi.")
-	public void testRadiusToAreaOfCircle_returnsPi_whenTheRadiusIsOne() {
+	void testRadiusToAreaOfCircle_returnsPi_whenTheRadiusIsOne() {
 		Double actualArea = calculatorConversion.radiusToAreaOfCircle(1.0);
 		assertThat(actualArea).isCloseTo(Math.PI, withinPercentage(0.01));
 	}

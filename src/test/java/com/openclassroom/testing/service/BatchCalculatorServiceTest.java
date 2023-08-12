@@ -25,7 +25,7 @@ public class BatchCalculatorServiceTest {
 	}
 
 	@Test
-	public void testBatchCalculate_returnsCorrectAnswerList() throws IOException, URISyntaxException {
+	void testBatchCalculate_returnsCorrectAnswerList() throws IOException, URISyntaxException {
 
 		// GIVEN
 		final Stream<String> operations = Arrays.asList("2 + 2", "5 - 4", "6 x 8", "9 / 3").stream();

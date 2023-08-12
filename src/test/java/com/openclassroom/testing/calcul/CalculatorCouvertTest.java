@@ -70,7 +70,7 @@ public class CalculatorCouvertTest {
 	@Test
 	@Tag("Addition")
 	@Tag("OperationWithTwoPositiveNumbers")
-	public void testAdd_twoPositiveNumbers() {
+	void testAdd_twoPositiveNumbers() {
 
 		// ARRANGE = GIVEN
 		int a = 2;
@@ -86,7 +86,7 @@ public class CalculatorCouvertTest {
 	@ParameterizedTest(name = "{0} + {1} doit être égal à {2}")
 	@CsvSource({ "1,1,2", "5,10,15", "256,410,666" })
 	@Tag("Addition")
-	public void testAdd_manyDifferentIntegers(int argument1, int argument2, int resultat) {
+	void testAdd_manyDifferentIntegers(int argument1, int argument2, int resultat) {
 
 		// ACT
 		int somme = calculatorCouvert.add(argument1, argument2);
@@ -98,7 +98,7 @@ public class CalculatorCouvertTest {
 
 	@Test
 	@Tag("OperationWithTwoPositiveNumbers")
-	public void testMultiply_twoPositiveNumbers() {
+	void testMultiply_twoPositiveNumbers() {
 
 		// ARRANGE
 		int a = 6;
@@ -113,7 +113,7 @@ public class CalculatorCouvertTest {
 
 	@ParameterizedTest(name = "{0} x 0 doit être égal à 0")
 	@ValueSource(ints = { 0, 1, 10, 555, 18990 })
-	public void testMultiply_anyNumberByZeroMustReturnZero(int argument) {
+	void testMultiply_anyNumberByZeroMustReturnZero(int argument) {
 
 		// ACT
 		int produit = calculatorCouvert.multiply(argument, 0);
@@ -126,7 +126,7 @@ public class CalculatorCouvertTest {
 	@Test
 	@Timeout(value = 2)
 	@Tag("TagExclu")
-	public void testLongCalcul_shouldComputeInLessThan2Seconds() {
+	void testLongCalcul_shouldComputeInLessThan2Seconds() {
 
 		// ACT
 		String message = calculatorCouvert.longCalcul();
@@ -138,13 +138,13 @@ public class CalculatorCouvertTest {
 
 	@Test
 	@Disabled("Test mis en sommeil car il échoue tous les vendredis")
-	public void testDateIsNotFriday() {
+	void testDateIsNotFriday() {
 		LocalDateTime dateTime = LocalDateTime.now();
 		assertThat(dateTime.getDayOfWeek()).isNotEqualTo(DayOfWeek.FRIDAY);
 	}
 
 	@Test
-	public void testReturnDigitsOfTheNumber() {
+	void testReturnDigitsOfTheNumber() {
 
 		// GIVEN
 		int firstNumber = 529045581;
@@ -163,7 +163,7 @@ public class CalculatorCouvertTest {
 	}
 
 	@Test
-	public void testSubtract_TwoPositiveNumber() {
+	void testSubtract_TwoPositiveNumber() {
 
 		// GIVEN
 		int x = 26;
@@ -177,7 +177,7 @@ public class CalculatorCouvertTest {
 	}
 
 	@Test
-	public void testDivide_TwoPositiveNumber() {
+	void testDivide_TwoPositiveNumber() {
 
 		// GIVEN
 		int x = 70;

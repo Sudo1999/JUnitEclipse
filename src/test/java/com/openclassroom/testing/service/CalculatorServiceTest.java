@@ -34,7 +34,7 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldUseCalculator_forAddition() {
+	void testCalculate_shouldUseCalculator_forAddition() {
 		
 		// GIVEN (when est une méthode statique de Mockito)
 		when(calculator.add(1, 2)).thenReturn(3);	// On paramètre la méthode add(1, 2) du calculator mocké pour retourner 3.
@@ -51,7 +51,7 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldFormatSolution_forAddition() {
+	void testCalculate_shouldFormatSolution_forAddition() {
 		
 		// GIVEN
 		when(calculator.add(10000, 3000)).thenReturn(13000);
@@ -68,7 +68,7 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldUseCalculator_forSoustraction() {
+	void testCalculate_shouldUseCalculator_forSoustraction() {
 		
 		// GIVEN
 		when(calculator.subtract(10, 6)).thenReturn(4);
@@ -83,7 +83,7 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldUseCalculator_forMultiplication() {
+	void testCalculate_shouldUseCalculator_forMultiplication() {
 		
 		// GIVEN
 		when(calculator.multiply(3, 4)).thenReturn(12);
@@ -98,7 +98,7 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldUseCalculator_forDivision() {
+	void testCalculate_shouldUseCalculator_forDivision() {
 		
 		// GIVEN
 		when(calculator.divide(40, 5)).thenReturn(8);
@@ -113,7 +113,7 @@ public class CalculatorServiceTest {
 	}
 
 	@Test
-	public void testCalculate_shouldThrowIllegalArgumentException_forDivisionBy0() {
+	void testCalculate_shouldThrowIllegalArgumentException_forDivisionBy0() {
 		
 		// GIVEN
 		when(calculator.divide(1, 0)).thenThrow(new IllegalArgumentException());
