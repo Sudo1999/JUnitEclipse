@@ -37,7 +37,7 @@ public class CalculatorCouvert {
 			// Attendre 1 seconde
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			Thread thread = new Thread();
 			thread.interrupt();
 		}
