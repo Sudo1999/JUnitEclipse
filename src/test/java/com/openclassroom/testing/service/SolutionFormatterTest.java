@@ -13,10 +13,9 @@ public class SolutionFormatterTest {
 
 		// GIVEN
 		formatter = new SolutionFormatterImplementation();
-		final int number = 154870500;
 
 		// WHEN
-		final String formattedNumber = formatter.format(number);
+		final String formattedNumber = formatter.format(154870500);
 
 		// THEN
 		// (Attention les espaces ne sont pas des espaces standards !!!)

@@ -12,6 +12,9 @@ public class CalculationModel {
 	private Integer solution;
 	private String formattedSolution;
 
+	public CalculationModel() {
+	}
+
 	public CalculationModel(CalculationType calculationType, int leftArgument, int rightArgument) {
 		type = calculationType;
 		this.leftArgument = leftArgument;

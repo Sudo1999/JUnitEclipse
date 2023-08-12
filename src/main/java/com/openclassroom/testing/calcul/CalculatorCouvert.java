@@ -14,12 +14,12 @@ public class CalculatorCouvert {
 	}
 
 	public Integer subtract(Integer leftArgument, Integer rightArgument) {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return leftArgument - rightArgument;
 	}
 
 	public Integer divide(Integer leftArgument, Integer rightArgument) {
-		// TODO Auto-generated method stub
+		// Auto-generated method stub
 		return leftArgument / rightArgument;
 	}
 
@@ -32,7 +32,7 @@ public class CalculatorCouvert {
 	}
 
 	public String longCalcul() /* throws InterruptedException */ {
-		String message = "Le test est passé avec succès !!!";
+		final String message = "Le test est passé avec succès !!!";
 		try {
 			// Attendre 1 seconde
 			Thread.sleep(1000);
@@ -46,8 +46,8 @@ public class CalculatorCouvert {
 
 	public Set<Integer> returnDigitsOfTheNumber(int number) {
 
-		String numberString = String.valueOf(number);
-		Set<Integer> integers = new HashSet<>();
+		final String numberString = String.valueOf(number);
+		final Set<Integer> integers = new HashSet<>();
 		for (int i = 0; i < numberString.length(); i++) {
 			if (number < 0 && i == 0) {
 				continue;

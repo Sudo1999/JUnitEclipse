@@ -22,9 +22,9 @@ import com.openclassroom.testing.model.CalculationType;
 public class CalculatorServiceTest {
 
 	@Mock
-	CalculatorCouvert calculator;
+	private CalculatorCouvert calculator;
 	@Mock
-	SolutionFormatter formatter;
+	private SolutionFormatter formatter;
 
 	private CalculatorService service;
 
@@ -62,6 +62,8 @@ public class CalculatorServiceTest {
 			.getFormattedSolution();
 
 		// THEN
+		verify(calculator).add(10000, 3000);
+		verify(formatter).format(13000);
 		assertThat(formattedResult).isEqualTo("13 000");
 	}
 
