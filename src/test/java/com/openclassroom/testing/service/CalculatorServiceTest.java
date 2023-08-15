@@ -1,7 +1,6 @@
 package com.openclassroom.testing.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -18,7 +17,7 @@ import com.openclassroom.testing.calcul.CalculatorCouvert;
 import com.openclassroom.testing.model.CalculationModel;
 import com.openclassroom.testing.model.CalculationType;
 
-@ExtendWith(MockitoExtension.class) // On va mocker la classe CalculatorCouvert pour focaliser le test sur CalculatorService
+@ExtendWith(MockitoExtension.class) // On va mocker les autres classes utilisées pour focaliser le test sur CalculatorService
 public class CalculatorServiceTest {
 
 	@Mock
@@ -110,17 +109,6 @@ public class CalculatorServiceTest {
 		// THEN
 		verify(calculator).divide(40, 5);
 		assertThat(result).isEqualTo(8);
-	}
-
-	@Test
-	void testCalculate_shouldThrowIllegalArgumentException_forDivisionBy0() {
-		
-		// GIVEN
-		when(calculator.divide(1, 0)).thenThrow(new IllegalArgumentException());
-		
-		// THEN
-		assertThrows(IllegalArgumentException.class, () -> service.calculate(new CalculationModel(CalculationType.DIVISION, 1, 0)));
-		verify(calculator, times(1)).divide(1, 0);
 	}
 
 	/* La classe de tests avant le mock :

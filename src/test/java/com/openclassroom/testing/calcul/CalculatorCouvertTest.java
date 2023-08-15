@@ -2,6 +2,7 @@ package com.openclassroom.testing.calcul;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.text.MessageFormat;
 import java.time.DayOfWeek;
@@ -188,5 +189,11 @@ public class CalculatorCouvertTest {
 
 		//THEN
 		assertThat(z).isEqualTo(5);
+	}
+
+	@Test
+	void testDivide_shouldThrowArithmeticException_forDivideBy0() {
+
+		assertThrows(ArithmeticException.class, () -> calculatorCouvert.divide(1, 0));
 	}
 }

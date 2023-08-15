@@ -37,7 +37,7 @@ public class CalculatorCouvert {
 			// Attendre 1 seconde
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			//e.printStackTrace();
+			//e.printStackTrace();	// La ligne provoque une alerte Sonar de sécurité
 			Thread thread = new Thread();
 			thread.interrupt();
 		}

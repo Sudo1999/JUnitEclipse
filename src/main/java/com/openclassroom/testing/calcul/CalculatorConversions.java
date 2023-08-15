@@ -1,6 +1,6 @@
 package com.openclassroom.testing.calcul;
 
-public class CalculatorConversion {
+public class CalculatorConversions {
 	/*
 	 * Source = https://github.com/geoffreyarthaud/oc-testing-java-cours/blob/p2ch2/
 	 * src/main/java/com/openclassrooms/testing/ConversionCalculator.java
